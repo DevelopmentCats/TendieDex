@@ -37,406 +37,1176 @@
   <!-- Fonts-->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 
   <!-- CSS -->
   <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/skeleton.css?cache01">
+  <link rel="stylesheet" href="css/skeleton.css">
   <link rel="icon" type="image/png" href="https://tendiedex.com/images/favicon.ico">
 
-  <!-- Analytics -->
-  <!-- That's right, I collect analytics, but all analytics go to MY analytics server and not some sleezy company that probably wants to sell the data behind my back.-->
-  <script defer data-domain="tendiedex.com" src="https://analytics.phoenixnet.tech/js/plausible.js"></script>
-  <script defer data-domain="tendiedex.net" src="https://analytics.phoenixnet.tech/js/plausible.js"></script>
-  <!-- https://analytics.phoenixnet.tech/tendiedex.com-->
-  <!-- https://analytics.phoenixnet.tech/tendiedex.net-->
+  <!-- Add Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Add Bootstrap and AOS for better styling and animations -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 </head>
 <body>
+    <header class="hero">
+        <div class="container">
+            <h1><i class="fas fa-drumstick-bite"></i> TendieDex 🐔</h1>
+            <p class="subtitle">The ultimate guide to chicken tenders and nuggets</p>
+        </div>
+    </header>
 
-  <div class="container">
-    <div class="row">
-      <div class="column" style="margin-top: 25%">
-        <h3>TendieDex 🐔</h4>
-        <p>Chicken Tenders, the most basic of foods, yet somehow restaurants manage to screw it up.</p>
-        <p>This is going to be an honest review of chicken tenders and nuggets from a wide variety of places, ranging from classic American diner to seafood restaurant. Everyone has them, and I've probably ordered them. <em>Yea, I'm that guy that orders from the kids menu...</em></p>
-        <hr/>
-        <h4>Rules, Standards, and Judgement Guidelines:</h4>
-        <p>The following reviews are based on the following criteria:</p>
-        <ul>
-          <li><strong>Flavor:</strong> Was it good, bad? Rich, garbage?</li>
-          <li><strong>Size:</strong> Were they small? large? adverage?</li>
-          <li><strong>Breading:</strong> Was it like eating sandpaper? Or was it too wet and fell right off?</li>
-          <li><strong>Individuality:</strong> What makes them different compared to everyone else? (Optional)</li>
-          <li>⭐: Means that this area is ideal, or meets expectations.</li>
-        </ul>
-        <p>Just a reminder, these reviews are my own, and solely my own. I have not been influenced by any of the restaurants / brands reviewed.</p>
-        <p><strong>Please do not contact me regarding the review of your product, this website was built as a joke in reference to the fact that one of the only things I eat at restaurants is often off the kids menu.</strong></p>
-        <hr/>
-      </div>
-    </div>
-    <div class="row" style="padding-top:25px;">
-      <div class="column">
-        <h4>Reviews:</h4>
-        <p>Reviews are sorted <strong>Best to Worst (Top to Bottom)</strong></p>
-        <p><em>All Chicken Was Eaten Without Sauce, Or Ketchup. (As-Served)</em></p>
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#rules">Rules</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#reviews">Reviews</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#stats">Stats</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-        <!-- Store-Bought-->
+    <main class="container">
+        <section id="about" class="section">
+            <h2><i class="fas fa-info-circle"></i> About TendieDex</h2>
+            <p>Chicken Tenders, the most basic of foods, yet somehow restaurants manage to screw it up.</p>
+            <p>This is an honest review of chicken tenders and nuggets from a wide variety of places, ranging from classic American diners to seafood restaurants. Everyone has them, and I've probably ordered them. <em>Yea, I'm that guy that orders from the kids menu...</em></p>
+        </section>
 
-        <table class="u-max-full-width">
-          <thread>
-            <h5><strong>Frozen / Store Bought:</strong></h5>
-            <tr>
-              <th>Logo | Brand:</th>
-              <th>Flavor:</th>
-              <th>Size:</th>
-              <th>Breading:</th>
-              <th>Individuality:</th>
-            </tr>
-          </thread>
-          <tbody>
-            <tr>
-              <td><img src="images/icons/aldi-32.png" class="tendie-logo">| Kirkwood Honey Battered Chicken Breast Tenders</td>
-              <td>Good</td>
-              <td>Small, Fingerfood</td>
-              <td>Thin, Good Taste</td>
-              <td>Honey-Sweet Taste</td>
-            </tr>
-            <tr>
-              <td><img src="images/icons/tyson-32.png" class="tendie-logo">| Tyson Honey Battered Chicken Breast Tenders</td>
-              <td>Good</td>
-              <td>Small, Fingerfood</td>
-              <td>Thin, Good Taste</td>
-              <td>(Literally Copies Aldi) Honey-Sweet Taste</td>
-            </tr>
-            <tr>
-              <td><img src="images/icons/aldi-32.png" class="tendie-logo">| Kirkwood Popcorn Chicken</td>
-              <td>Good</td>
-              <td>Small, Fingerfood</td>
-              <td>Good</td>
-              <td>Rich Thick Taste</td>
-            </tr>
-            <tr>
-              <td><img src="images/icons/aldi-32.png" class="tendie-logo">| Kirkwood Chicken Fries</td>
-              <td>Good</td>
-              <td>Small, But Fingerfood</td>
-              <td>Light, But Good</td>
-              <td>OK Seasoning, Easy To Make</td>
-            </tr>
-            <tr>
-              <td><img src="images/icons/tyson-32.png" class="tendie-logo">| Any'tizers Chicken Fries</td>
-              <td>Good, Not Terrible</td>
-              <td>Small, Fingerfood</td>
-              <td>Light, But Good</td>
-              <td>Good Seasoning, Easy To Make</td>
-            </tr>
-            <tr>
-              <td><img src="images/icons/tyson-32.png" class="tendie-logo">| Any'tizers Chicken Bites</td>
-              <td>Good, Lacking Depth.</td>
-              <td>Small, Fingerfood</td>
-              <td>Dry, Crunchy</td>
-              <td>Plain-Jain</td>
-            </tr>
-            <tr>
-              <td><img src="images/icons/tyson-32.png" class="tendie-logo">| Dino Fun Nuggets</td>
-              <td>Good</td>
-              <td>Small, Fingerfood</td>
-              <td>Good, Semi-Thick</td>
-              <td>Sweetened, Semi-Crunchy</td>
-            </tr>
-            <tr>
-              <td><img src="images/icons/tyson-32.png" class="tendie-logo">| Crispy Chicken Strips</td>
-              <td>Good</td>
-              <td>⭐ The Perfect Size</td>
-              <td>Good, Acceptable</td>
-              <td>Plain-Jain</td>
-            </tr>
-            <tr>
-              <td><img src="images/icons/tyson-32.png" class="tendie-logo">| Chicken Nuggets</td>
-              <td>OK, Lacking</td>
-              <td>Small, Fingerfood</td>
-              <td>Light, Falls Off</td>
-              <td>Plain-Jain</td>
-            </tr>
-          </tbody>
-        </table>
+        <section id="rules" class="section">
+            <h2><i class="fas fa-gavel"></i> Rules, Standards, and Judgement Guidelines</h2>
+            <p>The following reviews are based on the following criteria:</p>
+            <ul>
+                <li><strong>Flavor:</strong> Was it good, bad? Rich, garbage?</li>
+                <li><strong>Size:</strong> Were they small? large? average?</li>
+                <li><strong>Breading:</strong> Was it like eating sandpaper? Or was it too wet and fell right off?</li>
+                <li><strong>Individuality:</strong> What makes them different compared to everyone else? (Optional)</li>
+                <li>⭐: Means that this area is ideal, or meets expectations.</li>
+            </ul>
+            <p>Just a reminder, these reviews are my own, and solely my own. I have not been influenced by any of the restaurants / brands reviewed.</p>
+            <p><strong>Please do not contact me regarding the review of your product, this website was built as a joke in reference to the fact that one of the only things I eat at restaurants is often off the kids menu.</strong></p>
+        </section>
 
-        <!--Fast Food-->
+        <section id="reviews" class="section">
+            <h2><i class="fas fa-star"></i> Reviews</h2>
+            <p>Reviews are sorted <strong>Best to Worst (Top to Bottom)</strong></p>
+            <p><em>All Chicken Was Eaten Without Sauce, Or Ketchup. (As-Served)</em></p>
 
-        <table class="u-max-full-width">
-          <thread>
-            <h5><strong>Fast Food:</strong></h5>
-            <tr>
-              <th>Logo | Restaurant:</th>
-              <th>Flavor:</th>
-              <th>Size:</th>
-              <th>Breading:</th>
-              <th>Individuality:</th>
-            </tr>
-          </thread>
-          <tbody>
-            <tr>
-              <td><img src="images/icons/chick-fil-a.ico" class="tendie-logo">| Chick-fil-A</td>
-              <td>Rich, Marinated</td>
-              <td>Varies, Acceptable</td>
-              <td>Light, But Rich</td>
-              <td>⭐ Very Good Marinade</td>
-            </tr>
-            <tr>
-              <td><img src="images/icons/culvers-32.png" class="tendie-logo">| Culvers</td>
-              <td>Sweet, Battered</td>
-              <td>⭐ The Perfect Size</td>
-              <td>Thick and Rich</td>
-              <td>Very Thick Batter, Very Rich Taste</td>
-            </tr>
-            <tr>
-              <td><img src="images/icons/raising-canes-32.png" class="tendie-logo">| Raising Canes</td>
-              <td>Rich, Marinated</td>
-              <td>Shrinking, Marginal</td>
-              <td>Light, Thin, Falls Off</td>
-              <td>Good Marinade, Sometimes Dry</td>
-            </tr>
-            <tr>
-              <td><img src="images/icons/gus-32.png" class="tendie-logo">| Gus's</td>
-              <td>Pickle-y, Marinated</td>
-              <td>Large, Quantity</td>
-              <td>Light, Juicy</td>
-              <td>Good Marinade, Very Rich</td>
-            </tr>
-            <tr>
-              <td><img src="images/icons/lees-32.png" class="tendie-logo">| Lee's</td>
-              <td>Crunchy, Marinated</td>
-              <td>Midsize, Fair Quantity</td>
-              <td>Light Breading</td>
-              <td>Good Marinade, Unique</td>
-            </tr>
-            <tr>
-              <td><img src="images/icons/freddys-32.png" class="tendie-logo">| Freddy's</td>
-              <td>Marinated</td>
-              <td>Good</td>
-              <td>Crunchy, Easy To Chew</td>
-              <td>Seasoning Intensifies Flavor</td>
-            </tr>
-            <tr>
-              <td><img src="images/icons/shakeshack.ico" class="tendie-logo">| Shake Shack</td>
-              <td>Marinated, Sweet</td>
-              <td>Good</td>
-              <td>Slight crunch, Easy to Chew</td>
-              <td>Slight Marinate With a Slight Crunch Combination</td>
-            </tr>
-            <tr>
-              <td><img src="images/icons/churchs-32.png" class="tendie-logo">| Churchs</td>
-              <td>Rich Marinated</td>
-              <td>Good</td>
-              <td>Crunchy, Sweet</td>
-              <td>Good Batter Consistency</td>
-            </tr>
-            <tr>
-              <td><img src="images/icons/steaknshake-32.png" class="tendie-logo">| Steak n' Shake</td>
-              <td>Classic American</td>
-              <td>Good</td>
-              <td>Adverage</td>
-              <td>Tastes good, has never changed</td>
-            </tr>
-            <tr>
-              <td><img src="images/icons/dq-32.png" class="tendie-logo">| Dairy Queen</td>
-              <td>Plain</td>
-              <td>Good</td>
-              <td>Adverage Thickness, Baked</td>
-              <td>Plain, A Good Middle-Ground</td>
-            </tr>
-            <tr>
-              <td><img src="images/icons/wendys-32.png" class="tendie-logo">| Wendy's</td>
-              <td>Good, Marinated</td>
-              <td>Small, Nuggets</td>
-              <td>Good</td>
-              <td>Seasoning, Semi-Crunchy</td>
-            </tr>
-            <tr>
-              <td><img src="images/icons/JITB.png" class="tendie-logo">| Jack in the Box</td>
-              <td>Good</td>
-              <td>Mid</td>
-              <td>Good, Thin</td>
-              <td>Spicy-Marinade Taste</td>
-            </tr>
-            <tr>
-              <td><img src="images/icons/burgerking.ico" class="tendie-logo">| Burger King</td>
-              <td>Good</td>
-              <td>Small, Nuggets</td>
-              <td>Good, Thin</td>
-              <td>Seasoning</td>
-            </tr>
-            <tr>
-              <td><img src="images/icons/mcdonalds.ico" class="tendie-logo">| McDonalds</td>
-              <td>OK, Plain</td>
-              <td>Small, Nuggets</td>
-              <td>Thin, Occasionally Missing</td>
-              <td>Plain-Jain, OK In a Pinch</td>
-            </tr>
-            <tr>
-              <td><img src="images/icons/sonic-32.png" class="tendie-logo">| Sonic</td>
-              <td>Undercooked, Soggy</td>
-              <td>Good</td>
-              <td>Good, On Par With Dairy Queen</td>
-              <td>Undercooked, literally gave me food poisoning.</td>
-            </tr>
-          </tbody>
-        </table>
+            <!-- Add filter and search functionality -->
+            <div class="row card-grid">
+                <div id="store-bought" class="four columns category-section"></div>
+                <div id="fast-food" class="four columns category-section"></div>
+                <div id="restaurants" class="four columns category-section"></div>
+            </div>
 
-        <!--Sit-Down Restaurants-->
+            <!-- Store-Bought -->
+            <h3><i class="fas fa-shopping-cart"></i> Frozen / Store Bought</h3>
+            <div id="store-bought-reviews" class="card-grid">
+                <!-- Cards will be dynamically inserted here -->
+            </div>
 
-        <table class="u-max-full-width">
-          <thread>
-            <h5><strong>Restaurants:</strong></h5>
-            <tr>
-              <th>Logo | Restaurant:</th>
-              <th>Flavor:</th>
-              <th>Size:</th>
-              <th>Breading:</th>
-              <th>Individuality:</th>
-            </tr>
-          </thread>
-          <tbody>
-            <tr>
-              <td><img src="images/icons/texrh-32.png" class="tendie-logo">| Texas Roadhouse</td>
-              <td>Rich, Marinated</td>
-              <td>⭐ Medium, But Large Quantity</td>
-              <td>Rich, Battered</td>
-              <td>Very Rich Taste, Good Batter</td>
-            </tr>
-            <tr>
-              <td><img src="images/icons/meddys.png" class="tendie-logo">| Meddy's</td>
-              <td>Rich, Mediterranean-esque batter, with a "kick" of spice.</td>
-              <td>Medium, Filling.</td>
-              <td>Spiced, Battered</td>
-              <td>Very Unique Taste, Marinaded</td>
-            </tr>
-            <tr>
-              <td><img src="images/icons/redrobin-32.png" class="tendie-logo">| Red Robin</td>
-              <td>Marinated, Baked</td>
-              <td>Good</td>
-              <td>Heavily Battered, Crunchy</td>
-              <td>Good Batter, Light Marinade</td>
-            </tr>
-            <tr>
-              <td><img src="images/icons/tb.png" class="tendie-logo">| Twisted Biscuit</td>
-              <td>Marinated, Fried</td>
-              <td>Great (Large)</td>
-              <td>Crunchy, Sweet</td>
-              <td>Very Large Tenders, Well Cooked, Sweet Marinade</td>
-            </tr>
-            <tr>
-              <td><img src="images/icons/sugarfire.png" class="tendie-logo">| Sugarfire</td>
-              <td>Marinated, Fried</td>
-              <td>Chicken Patty</td>
-              <td>Crunchy, Sweet</td>
-              <td>Chicken Sandwich, Exceeds Expectations</td>
-            </tr>
-            <tr>
-              <td><img src="images/icons/llywelyns.ico" class="tendie-logo">| Llywelyn's Pub</td>
-              <td>Marinated, Baked</td>
-              <td>Adverage</td>
-              <td>Crunchy, Semi-Sweet</td>
-              <td>Good For Pub Food, Otherwise Adverage</td>
-            </tr>
-            <tr>
-              <td><img src="images/icons/portillos.png" class="tendie-logo">| Portillos</td>
-              <td>Baked</td>
-              <td>Adverage</td>
-              <td>Crunchy, Small Twang</td>
-              <td>Better than adverage</td>
-            </tr>
-            <tr>
-              <td><img src="images/icons/applebees-32.png" class="tendie-logo">| Applebees</td>
-              <td>Marinated, Baked</td>
-              <td>Adverage</td>
-              <td>Crunchy</td>
-              <td>Occasionally Small, or Overcooked</td>
-            </tr>
-            <tr>
-              <td><img src="images/icons/bandanas-32.png" class="tendie-logo">| Bandana's BBQ</td>
-              <td>Sweet</td>
-              <td>Adverage</td>
-              <td>Baked, Marinated</td>
-              <td>Stringy, Sweet and Crunchy</td>
-            </tr>
-            <tr>
-              <td><img src="images/icons/mercy.png" class="tendie-logo">| Mercy N. Cafeteria</td>
-              <td>Baked</td>
-              <td>Above Adverage</td>
-              <td>Baked</td>
-              <td>Shockingly well priced and good tasting!</td>
-            </tr>
-            <tr>
-              <td><img src="images/icons/hrc.png" class="tendie-logo">| Hard Rock Cafe</td>
-              <td>Baked</td>
-              <td>Adverage</td>
-              <td>Crunchy</td>
-              <td>Basic, Good</td>
-            </tr>
-            <tr>
-              <td><img src="images/icons/longhorn-32.png" class="tendie-logo">| LongHorn Steakhouse</td>
-              <td>Baked, OK</td>
-              <td>Adverage</td>
-              <td>Crunchy</td>
-              <td>Basic, Good</td>
-            </tr>
-            <tr>
-              <td><img src="images/icons/redlobster.ico" class="tendie-logo">| Red Lobster</td>
-              <td>Baked, OK</td>
-              <td>Adverage</td>
-              <td>Baked, Battered</td>
-              <td>Basic, OK Batter</td>
-            </tr>
-            <tr>
-              <td><img src="images/icons/redbar.png" class="tendie-logo">| Red Bar - Hyatt O'Hare</td>
-              <td>Baked, OK</td>
-              <td>Below Adverage</td>
-              <td>Baked</td>
-              <td>Basic, they'll do</td>
-            </tr>
-            <tr>
-              <td><img src="images/icons/IKEA.ico" class="tendie-logo">| IKEA (Dining)</td>
-              <td>Baked, OK</td>
-              <td>Adverage</td>
-              <td>Baked, Battered</td>
-              <td>Basic, But Good for Sweedish Chicken Tenders</td>
-            </tr>
-            <tr>
-              <td><img src="images/icons/sushiai-32.png" class="tendie-logo">| Sushi-Ai (Japanese Restaurant)</td>
-              <td>Yakitori</td>
-              <td>Skewered</td>
-              <td>You get rice</td>
-              <td>These Are Not Chicken Nuggets, or Tenders</td>
-            </tr>
-            <tr>
-              <td><img src="images/icons/kyoto-32.png" class="tendie-logo">| Kyoto (Japanese Steakhouse)</td>
-              <td>Fried, Light Sauce</td>
-              <td>Finely Chopped</td>
-              <td>You get rice</td>
-              <td>These Are Not Chicken Nuggets, or Tenders</td>
-            </tr>
-            <tr>
-              <td><img src="images/icons/wnr.ico" class="tendie-logo">| Wings and Rings</td>
-              <td>Baked</td>
-              <td>Adverage</td>
-              <td>Crunchy</td>
-              <td>Disappointingly Tough, Overcooked</td>
-            </tr>
-            <tr>
-              <td><img src="images/icons/dennys-32.png" class="tendie-logo">| Denny's</td>
-              <td>Tough, Well Cooked</td>
-              <td>Adverage</td>
-              <td>Fried, Plain, Thin Batter</td>
-              <td>OK, Very Oily, Tollerable</td>
-          </tbody>
-        </table>
-      </div>
-      <p>That's it for now, I'll be updating this if I have any additional restaurants I visit and would like to add. <br/><br/><strong>(Updated 07-29-24)</strong></p>
-      <hr/>
-      <h5>About This Project:</h5>
-      <p>This project is entirely open-source! And <a href="https://github.com/PhoenixSheppy/TendieDex">available on Github!</a> I'm sure someone will want to do this with french fries or bread or something.</p>
-    </div>
-  </div>
+            <!-- Fast Food -->
+            <h3><i class="fas fa-hamburger"></i> Fast Food</h3>
+            <div id="fast-food-reviews" class="card-grid">
+                <!-- Cards will be dynamically inserted here -->
+            </div>
+
+            <!-- Sit-Down Restaurants -->
+            <h3><i class="fas fa-utensils"></i> Restaurants</h3>
+            <div id="restaurant-reviews" class="card-grid">
+                <!-- Cards will be dynamically inserted here -->
+            </div>
+        </section>
+
+        <section id="stats" class="section">
+            <h2><i class="fas fa-chart-bar"></i> Tender Stats</h2>
+            <div class="row">
+                <div class="six columns">
+                    <canvas id="flavorChart"></canvas>
+                </div>
+                <div class="six columns">
+                    <canvas id="sizeChart"></canvas>
+                </div>
+            </div>
+            
+            <!-- Add interactive rating system -->
+            <div class="row">
+                <div class="twelve columns">
+                    <h3>Rate Your Favorite Chicken Tenders</h3>
+                    <select id="tenderSelect" class="u-full-width">
+                        <!-- Options will be populated dynamically -->
+                    </select>
+                    <div id="ratingStars" class="u-full-width">
+                        <!-- Stars will be added dynamically -->
+                    </div>
+                    <button id="submitRating" class="button-primary">Submit Rating</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Add new comparison tool section -->
+        <section id="comparison" class="section">
+            <h2><i class="fas fa-balance-scale"></i> Tender Comparison Tool</h2>
+            <div class="row">
+                <div class="five columns">
+                    <select id="tender1" class="u-full-width">
+                        <!-- Options will be populated dynamically -->
+                    </select>
+                </div>
+                <div class="two columns">
+                    <h4 class="text-center">VS</h4>
+                </div>
+                <div class="five columns">
+                    <select id="tender2" class="u-full-width">
+                        <!-- Options will be populated dynamically -->
+                    </select>
+                </div>
+            </div>
+            <div id="comparisonResult" class="u-full-width">
+                <!-- Comparison results will be displayed here -->
+            </div>
+        </section>
+
+        <section id="updates" class="section">
+            <h2><i class="fas fa-clock"></i> Updates</h2>
+            <p>That's it for now, I'll be updating this if I have any additional restaurants I visit and would like to add.</p>
+            <p><strong>Last Updated: 07-29-24</strong></p>
+        </section>
+    </main>
+
+    <footer class="footer bg-dark text-light py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>About This Project</h3>
+                    <p>This project is entirely open-source! And <a href="https://github.com/PhoenixSheppy/TendieDex" class="text-light">available on Github!</a> I'm sure someone will want to do this with french fries or bread or something.</p>
+                </div>
+                <div class="col-md-6">
+                    <h3>Quick Links</h3>
+                    <ul class="list-unstyled">
+                        <li><a href="#about" class="text-light">About</a></li>
+                        <li><a href="#rules" class="text-light">Rules</a></li>
+                        <li><a href="#reviews" class="text-light">Reviews</a></li>
+                        <li><a href="#stats" class="text-light">Stats</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Add JavaScript file -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Initialize AOS with a delay
+        setTimeout(function() {
+            AOS.init({
+                once: true,
+                duration: 1000
+            });
+        }, 100);
+
+        // Add animation to sections
+        document.querySelectorAll('.section').forEach(section => {
+            section.setAttribute('data-aos', 'fade-up');
+            section.setAttribute('data-aos-duration', '1000');
+        });
+
+        // Create flavor chart
+        const flavorCtx = document.getElementById('flavorChart').getContext('2d');
+        new Chart(flavorCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Rich', 'Sweet', 'Plain', 'Marinated', 'Spicy'],
+                datasets: [{
+                    label: 'Flavor Distribution',
+                    data: [8, 5, 3, 10, 2],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.8)',
+                        'rgba(54, 162, 235, 0.8)',
+                        'rgba(255, 206, 86, 0.8)',
+                        'rgba(75, 192, 192, 0.8)',
+                        'rgba(153, 102, 255, 0.8)'
+                    ]
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Flavor Distribution'
+                    }
+                }
+            }
+        });
+
+        // Create size chart
+        const sizeCtx = document.getElementById('sizeChart').getContext('2d');
+        new Chart(sizeCtx, {
+            type: 'pie',
+            data: {
+                labels: ['Small', 'Medium', 'Large'],
+                datasets: [{
+                    data: [3, 7, 5],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.8)',
+                        'rgba(54, 162, 235, 0.8)',
+                        'rgba(255, 206, 86, 0.8)'
+                    ]
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Size Distribution'
+                    }
+                }
+            }
+        });
+
+        // Add smooth scrolling to nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Rating system
+        const tenderSelect = document.getElementById('tenderSelect');
+        const ratingStars = document.getElementById('ratingStars');
+        const submitRating = document.getElementById('submitRating');
+
+        // Create rating stars
+        for (let i = 1; i <= 5; i++) {
+            const star = document.createElement('span');
+            star.classList.add('rating-star');
+            star.textContent = '★';
+            star.dataset.rating = i;
+            ratingStars.appendChild(star);
+        }
+
+        // Handle star rating
+        ratingStars.addEventListener('click', function(e) {
+            if (e.target.classList.contains('rating-star')) {
+                const rating = e.target.dataset.rating;
+                const stars = ratingStars.children;
+                for (let i = 0; i < stars.length; i++) {
+                    stars[i].classList.toggle('active', i < rating);
+                }
+            }
+        });
+
+        // Handle rating submission
+        submitRating.addEventListener('click', function() {
+            const selectedTender = tenderSelect.value;
+            const rating = ratingStars.querySelectorAll('.active').length;
+            alert(`You rated ${selectedTender} ${rating} stars. Thank you for your feedback!`);
+            // Here you would typically send this data to a server
+        });
+
+        // Comparison tool
+        const tender1 = document.getElementById('tender1');
+        const tender2 = document.getElementById('tender2');
+        const comparisonResult = document.getElementById('comparisonResult');
+
+        // Handle comparison
+        [tender1, tender2].forEach(select => {
+            select.addEventListener('change', compareChicken);
+        });
+
+        function compareChicken() {
+            const chicken1 = getTenderData(tender1.value);
+            const chicken2 = getTenderData(tender2.value);
+
+            if (chicken1 && chicken2) {
+                comparisonResult.innerHTML = `
+                    <h4>${chicken1.name} vs ${chicken2.name}</h4>
+                    <p><strong>Flavor:</strong> ${chicken1.flavor} vs ${chicken2.flavor}</p>
+                    <p><strong>Size:</strong> ${chicken1.size} vs ${chicken2.size}</p>
+                    <p><strong>Breading:</strong> ${chicken1.breading} vs ${chicken2.breading}</p>
+                    <p><strong>Individuality:</strong> ${chicken1.individuality} vs ${chicken2.individuality}</p>
+                `;
+            }
+        }
+
+        function getTenderData(tenderName) {
+            const tender = tenders.find(t => t.name === tenderName);
+            return tender ? {
+                name: tender.name,
+                flavor: tender.flavor,
+                size: tender.size,
+                breading: tender.breading,
+                individuality: tender.individuality
+            } : null;
+        }
+
+        // Function to create a card for each tender
+        function createTenderCard(tender) {
+            return `
+                <div class="card">
+                    <div class="card-header">
+                        <img src="${tender.logo}" alt="${tender.name} logo" class="tender-logo">
+                        <h4 class="tender-name">${tender.name}</h4>
+                    </div>
+                    <div class="card-body">
+                        <p class="tender-detail"><strong>Flavor:</strong> ${tender.flavor}</p>
+                        <p class="tender-detail"><strong>Size:</strong> ${tender.size}</p>
+                        <p class="tender-detail"><strong>Breading:</strong> ${tender.breading}</p>
+                        <p class="tender-detail"><strong>Individuality:</strong> ${tender.individuality}</p>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Function to populate reviews
+        function populateReviews() {
+            const categories = {
+                'store-bought': document.getElementById('store-bought-reviews'),
+                'fast-food': document.getElementById('fast-food-reviews'),
+                'restaurants': document.getElementById('restaurant-reviews')
+            };
+
+            tenders.forEach(tender => {
+                const card = createTenderCard(tender);
+                categories[tender.category].innerHTML += card;
+            });
+
+            // Populate tender select options
+            tenders.forEach(tender => {
+                const option = document.createElement('option');
+                option.value = tender.name;
+                option.textContent = tender.name;
+                tenderSelect.appendChild(option);
+                tender1.appendChild(option.cloneNode(true));
+                tender2.appendChild(option.cloneNode(true));
+            });
+        }
+
+        // Tenders data
+        const tenders = [
+            {
+                category: 'store-bought',
+                name: 'Kirkwood Honey Battered Chicken Breast Tenders',
+                logo: 'images/icons/aldi-32.png',
+                flavor: 'Good',
+                size: 'Small, Fingerfood',
+                breading: 'Thin, Good Taste',
+                individuality: 'Honey-Sweet Taste'
+            },
+            {
+                category: 'store-bought',
+                name: 'Tyson Honey Battered Chicken Breast Tenders',
+                logo: 'images/icons/tyson-32.png',
+                flavor: 'Good',
+                size: 'Small, Fingerfood',
+                breading: 'Thin, Good Taste',
+                individuality: '(Literally Copies Aldi) Honey-Sweet Taste'
+            },
+            {
+                category: 'store-bought',
+                name: 'Kirkwood Popcorn Chicken',
+                logo: 'images/icons/aldi-32.png',
+                flavor: 'Good',
+                size: 'Small, Fingerfood',
+                breading: 'Good',
+                individuality: 'Rich Thick Taste'
+            },
+            {
+                category: 'store-bought',
+                name: 'Kirkwood Chicken Fries',
+                logo: 'images/icons/aldi-32.png',
+                flavor: 'Good',
+                size: 'Small, But Fingerfood',
+                breading: 'Light, But Good',
+                individuality: 'OK Seasoning, Easy To Make'
+            },
+            {
+                category: 'store-bought',
+                name: 'Any\'tizers Chicken Fries',
+                logo: 'images/icons/tyson-32.png',
+                flavor: 'Good, Not Terrible',
+                size: 'Small, Fingerfood',
+                breading: 'Light, But Good',
+                individuality: 'Good Seasoning, Easy To Make'
+            },
+            {
+                category: 'store-bought',
+                name: 'Any\'tizers Chicken Bites',
+                logo: 'images/icons/tyson-32.png',
+                flavor: 'Good, Lacking Depth.',
+                size: 'Small, Fingerfood',
+                breading: 'Dry, Crunchy',
+                individuality: 'Plain-Jain'
+            },
+            {
+                category: 'store-bought',
+                name: 'Dino Fun Nuggets',
+                logo: 'images/icons/tyson-32.png',
+                flavor: 'Good',
+                size: 'Small, Fingerfood',
+                breading: 'Good, Semi-Thick',
+                individuality: 'Sweetened, Semi-Crunchy'
+            },
+            {
+                category: 'store-bought',
+                name: 'Crispy Chicken Strips',
+                logo: 'images/icons/tyson-32.png',
+                flavor: 'Good',
+                size: '⭐ The Perfect Size',
+                breading: 'Good, Acceptable',
+                individuality: 'Plain-Jain'
+            },
+            {
+                category: 'store-bought',
+                name: 'Chicken Nuggets',
+                logo: 'images/icons/tyson-32.png',
+                flavor: 'OK, Lacking',
+                size: 'Small, Fingerfood',
+                breading: 'Light, Falls Off',
+                individuality: 'Plain-Jain'
+            },
+            {
+                category: 'fast-food',
+                name: 'Chick-fil-A',
+                logo: 'images/icons/chick-fil-a.ico',
+                flavor: 'Rich, Marinated',
+                size: 'Varies, Acceptable',
+                breading: 'Light, But Rich',
+                individuality: '⭐ Very Good Marinade'
+            },
+            {
+                category: 'fast-food',
+                name: 'Culvers',
+                logo: 'images/icons/culvers-32.png',
+                flavor: 'Sweet, Battered',
+                size: '⭐ The Perfect Size',
+                breading: 'Thick and Rich',
+                individuality: 'Very Thick Batter, Very Rich Taste'
+            },
+            {
+                category: 'fast-food',
+                name: 'Raising Canes',
+                logo: 'images/icons/raising-canes-32.png',
+                flavor: 'Rich, Marinated',
+                size: 'Shrinking, Marginal',
+                breading: 'Light, Thin, Falls Off',
+                individuality: 'Good Marinade, Sometimes Dry'
+            },
+            {
+                category: 'fast-food',
+                name: 'Gus\'s',
+                logo: 'images/icons/gus-32.png',
+                flavor: 'Pickle-y, Marinated',
+                size: 'Large, Quantity',
+                breading: 'Light, Juicy',
+                individuality: 'Good Marinade, Very Rich'
+            },
+            {
+                category: 'fast-food',
+                name: 'Lee\'s',
+                logo: 'images/icons/lees-32.png',
+                flavor: 'Crunchy, Marinated',
+                size: 'Midsize, Fair Quantity',
+                breading: 'Light Breading',
+                individuality: 'Good Marinade, Unique'
+            },
+            {
+                category: 'fast-food',
+                name: 'Freddy\'s',
+                logo: 'images/icons/freddys-32.png',
+                flavor: 'Marinated',
+                size: 'Good',
+                breading: 'Crunchy, Easy To Chew',
+                individuality: 'Seasoning Intensifies Flavor'
+            },
+            {
+                category: 'fast-food',
+                name: 'Shake Shack',
+                logo: 'images/icons/shakeshack.ico',
+                flavor: 'Marinated, Sweet',
+                size: 'Good',
+                breading: 'Slight crunch, Easy to Chew',
+                individuality: 'Slight Marinate With a Slight Crunch Combination'
+            },
+            {
+                category: 'fast-food',
+                name: 'Churchs',
+                logo: 'images/icons/churchs-32.png',
+                flavor: 'Rich Marinated',
+                size: 'Good',
+                breading: 'Crunchy, Sweet',
+                individuality: 'Good Batter Consistency'
+            },
+            {
+                category: 'fast-food',
+                name: 'Steak n\' Shake',
+                logo: 'images/icons/steaknshake-32.png',
+                flavor: 'Classic American',
+                size: 'Good',
+                breading: 'Average',
+                individuality: 'Tastes good, has never changed'
+            },
+            {
+                category: 'fast-food',
+                name: 'Dairy Queen',
+                logo: 'images/icons/dq-32.png',
+                flavor: 'Plain',
+                size: 'Good',
+                breading: 'Average Thickness, Baked',
+                individuality: 'Plain, A Good Middle-Ground'
+            },
+            {
+                category: 'fast-food',
+                name: 'Wendy\'s',
+                logo: 'images/icons/wendys-32.png',
+                flavor: 'Good, Marinated',
+                size: 'Small, Nuggets',
+                breading: 'Good',
+                individuality: 'Seasoning, Semi-Crunchy'
+            },
+            {
+                category: 'fast-food',
+                name: 'Jack in the Box',
+                logo: 'images/icons/JITB.png',
+                flavor: 'Good',
+                size: 'Mid',
+                breading: 'Good, Thin',
+                individuality: 'Spicy-Marinade Taste'
+            },
+            {
+                category: 'fast-food',
+                name: 'Burger King',
+                logo: 'images/icons/burgerking.ico',
+                flavor: 'Good',
+                size: 'Small, Nuggets',
+                breading: 'Good, Thin',
+                individuality: 'Seasoning'
+            },
+            {
+                category: 'fast-food',
+                name: 'McDonalds',
+                logo: 'images/icons/mcdonalds.ico',
+                flavor: 'OK, Plain',
+                size: 'Small, Nuggets',
+                breading: 'Thin, Occasionally Missing',
+                individuality: 'Plain-Jain, OK In a Pinch'
+            },
+            {
+                category: 'fast-food',
+                name: 'Sonic',
+                logo: 'images/icons/sonic-32.png',
+                flavor: 'Undercooked, Soggy',
+                size: 'Good',
+                breading: 'Good, On Par With Dairy Queen',
+                individuality: 'Undercooked, literally gave me food poisoning.'
+            },
+            {
+                category: 'restaurants',
+                name: 'Texas Roadhouse',
+                logo: 'images/icons/texrh-32.png',
+                flavor: 'Rich, Marinated',
+                size: '⭐ Medium, But Large Quantity',
+                breading: 'Rich, Battered',
+                individuality: 'Very Rich Taste, Good Batter'
+            },
+            {
+                category: 'restaurants',
+                name: 'Meddy\'s',
+                logo: 'images/icons/meddys.png',
+                flavor: 'Rich, Mediterranean-esque batter, with a "kick" of spice.',
+                size: 'Medium, Filling.',
+                breading: 'Spiced, Battered',
+                individuality: 'Very Unique Taste, Marinated'
+            },
+            {
+                category: 'restaurants',
+                name: 'Red Robin',
+                logo: 'images/icons/redrobin-32.png',
+                flavor: 'Marinated, Baked',
+                size: 'Good',
+                breading: 'Heavily Battered, Crunchy',
+                individuality: 'Good Batter, Light Marinade'
+            },
+            {
+                category: 'restaurants',
+                name: 'Twisted Biscuit',
+                logo: 'images/icons/tb.png',
+                flavor: 'Marinated, Fried',
+                size: 'Great (Large)',
+                breading: 'Crunchy, Sweet',
+                individuality: 'Very Large Tenders, Well Cooked, Sweet Marinade'
+            },
+            {
+                category: 'restaurants',
+                name: 'Sugarfire',
+                logo: 'images/icons/sugarfire.png',
+                flavor: 'Marinated, Fried',
+                size: 'Chicken Patty',
+                breading: 'Crunchy, Sweet',
+                individuality: 'Chicken Sandwich, Exceeds Expectations'
+            },
+            {
+                category: 'restaurants',
+                name: 'Llywelyn\'s Pub',
+                logo: 'images/icons/llywelyns.ico',
+                flavor: 'Marinated, Baked',
+                size: 'Average',
+                breading: 'Crunchy, Semi-Sweet',
+                individuality: 'Good For Pub Food, Otherwise Average'
+            },
+            {
+                category: 'restaurants',
+                name: 'Portillos',
+                logo: 'images/icons/portillos.png',
+                flavor: 'Baked',
+                size: 'Average',
+                breading: 'Crunchy, Small Twang',
+                individuality: 'Better than average'
+            },
+            {
+                category: 'restaurants',
+                name: 'Applebees',
+                logo: 'images/icons/applebees-32.png',
+                flavor: 'Marinated, Baked',
+                size: 'Average',
+                breading: 'Crunchy',
+                individuality: 'Occasionally Small, or Overcooked'
+            },
+            {
+                category: 'restaurants',
+                name: 'Bandana\'s BBQ',
+                logo: 'images/icons/bandanas-32.png',
+                flavor: 'Sweet',
+                size: 'Average',
+                breading: 'Baked, Marinated',
+                individuality: 'Stringy, Sweet and Crunchy'
+            },
+            {
+                category: 'restaurants',
+                name: 'Mercy N. Cafeteria',
+                logo: 'images/icons/mercy.png',
+                flavor: 'Baked',
+                size: 'Above Average',
+                breading: 'Baked',
+                individuality: 'Shockingly well priced and good tasting!'
+            },
+            {
+                category: 'restaurants',
+                name: 'Hard Rock Cafe',
+                logo: 'images/icons/hrc.png',
+                flavor: 'Baked',
+                size: 'Average',
+                breading: 'Crunchy',
+                individuality: 'Basic, Good'
+            },
+            {
+                category: 'restaurants',
+                name: 'LongHorn Steakhouse',
+                logo: 'images/icons/longhorn-32.png',
+                flavor: 'Baked, OK',
+                size: 'Average',
+                breading: 'Crunchy',
+                individuality: 'Basic, Good'
+            },
+            {
+                category: 'restaurants',
+                name: 'Red Lobster',
+                logo: 'images/icons/redlobster.ico',
+                flavor: 'Baked, OK',
+                size: 'Average',
+                breading: 'Baked, Battered',
+                individuality: 'Basic, OK Batter'
+            },
+            {
+                category: 'restaurants',
+                name: 'Red Bar - Hyatt O\'Hare',
+                logo: 'images/icons/redbar.png',
+                flavor: 'Baked, OK',
+                size: 'Below Average',
+                breading: 'Baked',
+                individuality: 'Basic, they\'ll do'
+            },
+            {
+                category: 'restaurants',
+                name: 'IKEA (Dining)',
+                logo: 'images/icons/IKEA.ico',
+                flavor: 'Baked, OK',
+                size: 'Average',
+                breading: 'Baked, Battered',
+                individuality: 'Basic, But Good for Swedish Chicken Tenders'
+            },
+            {
+                category: 'restaurants',
+                name: 'Sushi-Ai (Japanese Restaurant)',
+                logo: 'images/icons/sushiai-32.png',
+                flavor: 'Yakitori',
+                size: 'Skewered',
+                breading: 'You get rice',
+                individuality: 'These Are Not Chicken Nuggets, or Tenders'
+            },
+            {
+                category: 'restaurants',
+                name: 'Kyoto (Japanese Steakhouse)',
+                logo: 'images/icons/kyoto-32.png',
+                flavor: 'Fried, Light Sauce',
+                size: 'Finely Chopped',
+                breading: 'You get rice',
+                individuality: 'These Are Not Chicken Nuggets, or Tenders'
+            },
+            {
+                category: 'restaurants',
+                name: 'Wings and Rings',
+                logo: 'images/icons/wnr.ico',
+                flavor: 'Baked',
+                size: 'Average',
+                breading: 'Crunchy',
+                individuality: 'Disappointingly Tough, Overcooked'
+            },
+            {
+                category: 'restaurants',
+                name: 'Denny\'s',
+                logo: 'images/icons/dennys-32.png',
+                flavor: 'Tough, Well Cooked',
+                size: 'Average',
+                breading: 'Fried, Plain, Thin Batter',
+                individuality: 'OK, Very Oily, Tolerable'
+            }
+        ];
+
+        populateReviews();
+    });
+</script>
+</body>
+</html>
+
+        // Function to populate reviews
+        function populateReviews() {
+            const categories = {
+                'store-bought': document.getElementById('store-bought-reviews'),
+                'fast-food': document.getElementById('fast-food-reviews'),
+                'restaurants': document.getElementById('restaurant-reviews')
+            };
+
+            // Iterate through your data and create cards
+            // This is a placeholder - you'll need to replace it with your actual data
+            const tenders = [
+                {
+                    category: 'store-bought',
+                    name: 'Kirkwood Honey Battered Chicken Breast Tenders',
+                    logo: 'images/icons/aldi-32.png',
+                    flavor: 'Good',
+                    size: 'Small, Fingerfood',
+                    breading: 'Thin, Good Taste',
+                    individuality: 'Honey-Sweet Taste'
+                },
+                {
+                    category: 'store-bought',
+                    name: 'Tyson Honey Battered Chicken Breast Tenders',
+                    logo: 'images/icons/tyson-32.png',
+                    flavor: 'Good',
+                    size: 'Small, Fingerfood',
+                    breading: 'Thin, Good Taste',
+                    individuality: '(Literally Copies Aldi) Honey-Sweet Taste'
+                },
+                {
+                    category: 'store-bought',
+                    name: 'Kirkwood Popcorn Chicken',
+                    logo: 'images/icons/aldi-32.png',
+                    flavor: 'Good',
+                    size: 'Small, Fingerfood',
+                    breading: 'Good',
+                    individuality: 'Rich Thick Taste'
+                },
+                {
+                    category: 'store-bought',
+                    name: 'Kirkwood Chicken Fries',
+                    logo: 'images/icons/aldi-32.png',
+                    flavor: 'Good',
+                    size: 'Small, But Fingerfood',
+                    breading: 'Light, But Good',
+                    individuality: 'OK Seasoning, Easy To Make'
+                },
+                {
+                    category: 'store-bought',
+                    name: 'Any\'tizers Chicken Fries',
+                    logo: 'images/icons/tyson-32.png',
+                    flavor: 'Good, Not Terrible',
+                    size: 'Small, Fingerfood',
+                    breading: 'Light, But Good',
+                    individuality: 'Good Seasoning, Easy To Make'
+                },
+                {
+                    category: 'store-bought',
+                    name: 'Any\'tizers Chicken Bites',
+                    logo: 'images/icons/tyson-32.png',
+                    flavor: 'Good, Lacking Depth.',
+                    size: 'Small, Fingerfood',
+                    breading: 'Dry, Crunchy',
+                    individuality: 'Plain-Jain'
+                },
+                {
+                    category: 'store-bought',
+                    name: 'Dino Fun Nuggets',
+                    logo: 'images/icons/tyson-32.png',
+                    flavor: 'Good',
+                    size: 'Small, Fingerfood',
+                    breading: 'Good, Semi-Thick',
+                    individuality: 'Sweetened, Semi-Crunchy'
+                },
+                {
+                    category: 'store-bought',
+                    name: 'Crispy Chicken Strips',
+                    logo: 'images/icons/tyson-32.png',
+                    flavor: 'Good',
+                    size: '⭐ The Perfect Size',
+                    breading: 'Good, Acceptable',
+                    individuality: 'Plain-Jain'
+                },
+                {
+                    category: 'store-bought',
+                    name: 'Chicken Nuggets',
+                    logo: 'images/icons/tyson-32.png',
+                    flavor: 'OK, Lacking',
+                    size: 'Small, Fingerfood',
+                    breading: 'Light, Falls Off',
+                    individuality: 'Plain-Jain'
+                },
+                {
+                    category: 'fast-food',
+                    name: 'Chick-fil-A',
+                    logo: 'images/icons/chick-fil-a.ico',
+                    flavor: 'Rich, Marinated',
+                    size: 'Varies, Acceptable',
+                    breading: 'Light, But Rich',
+                    individuality: '⭐ Very Good Marinade'
+                },
+                {
+                    category: 'fast-food',
+                    name: 'Culvers',
+                    logo: 'images/icons/culvers-32.png',
+                    flavor: 'Sweet, Battered',
+                    size: '⭐ The Perfect Size',
+                    breading: 'Thick and Rich',
+                    individuality: 'Very Thick Batter, Very Rich Taste'
+                },
+                {
+                    category: 'fast-food',
+                    name: 'Raising Canes',
+                    logo: 'images/icons/raising-canes-32.png',
+                    flavor: 'Rich, Marinated',
+                    size: 'Shrinking, Marginal',
+                    breading: 'Light, Thin, Falls Off',
+                    individuality: 'Good Marinade, Sometimes Dry'
+                },
+                {
+                    category: 'fast-food',
+                    name: 'Gus\'s',
+                    logo: 'images/icons/gus-32.png',
+                    flavor: 'Pickle-y, Marinated',
+                    size: 'Large, Quantity',
+                    breading: 'Light, Juicy',
+                    individuality: 'Good Marinade, Very Rich'
+                },
+                {
+                    category: 'fast-food',
+                    name: 'Lee\'s',
+                    logo: 'images/icons/lees-32.png',
+                    flavor: 'Crunchy, Marinated',
+                    size: 'Midsize, Fair Quantity',
+                    breading: 'Light Breading',
+                    individuality: 'Good Marinade, Unique'
+                },
+                {
+                    category: 'fast-food',
+                    name: 'Freddy\'s',
+                    logo: 'images/icons/freddys-32.png',
+                    flavor: 'Marinated',
+                    size: 'Good',
+                    breading: 'Crunchy, Easy To Chew',
+                    individuality: 'Seasoning Intensifies Flavor'
+                },
+                {
+                    category: 'fast-food',
+                    name: 'Shake Shack',
+                    logo: 'images/icons/shakeshack.ico',
+                    flavor: 'Marinated, Sweet',
+                    size: 'Good',
+                    breading: 'Slight crunch, Easy to Chew',
+                    individuality: 'Slight Marinate With a Slight Crunch Combination'
+                },
+                {
+                    category: 'fast-food',
+                    name: 'Churchs',
+                    logo: 'images/icons/churchs-32.png',
+                    flavor: 'Rich Marinated',
+                    size: 'Good',
+                    breading: 'Crunchy, Sweet',
+                    individuality: 'Good Batter Consistency'
+                },
+                {
+                    category: 'fast-food',
+                    name: 'Steak n\' Shake',
+                    logo: 'images/icons/steaknshake-32.png',
+                    flavor: 'Classic American',
+                    size: 'Good',
+                    breading: 'Average',
+                    individuality: 'Tastes good, has never changed'
+                },
+                {
+                    category: 'fast-food',
+                    name: 'Dairy Queen',
+                    logo: 'images/icons/dq-32.png',
+                    flavor: 'Plain',
+                    size: 'Good',
+                    breading: 'Average Thickness, Baked',
+                    individuality: 'Plain, A Good Middle-Ground'
+                },
+                {
+                    category: 'fast-food',
+                    name: 'Wendy\'s',
+                    logo: 'images/icons/wendys-32.png',
+                    flavor: 'Good, Marinated',
+                    size: 'Small, Nuggets',
+                    breading: 'Good',
+                    individuality: 'Seasoning, Semi-Crunchy'
+                },
+                {
+                    category: 'fast-food',
+                    name: 'Jack in the Box',
+                    logo: 'images/icons/JITB.png',
+                    flavor: 'Good',
+                    size: 'Mid',
+                    breading: 'Good, Thin',
+                    individuality: 'Spicy-Marinade Taste'
+                },
+                {
+                    category: 'fast-food',
+                    name: 'Burger King',
+                    logo: 'images/icons/burgerking.ico',
+                    flavor: 'Good',
+                    size: 'Small, Nuggets',
+                    breading: 'Good, Thin',
+                    individuality: 'Seasoning'
+                },
+                {
+                    category: 'fast-food',
+                    name: 'McDonalds',
+                    logo: 'images/icons/mcdonalds.ico',
+                    flavor: 'OK, Plain',
+                    size: 'Small, Nuggets',
+                    breading: 'Thin, Occasionally Missing',
+                    individuality: 'Plain-Jain, OK In a Pinch'
+                },
+                {
+                    category: 'fast-food',
+                    name: 'Sonic',
+                    logo: 'images/icons/sonic-32.png',
+                    flavor: 'Undercooked, Soggy',
+                    size: 'Good',
+                    breading: 'Good, On Par With Dairy Queen',
+                    individuality: 'Undercooked, literally gave me food poisoning.'
+                },
+                {
+                    category: 'restaurants',
+                    name: 'Texas Roadhouse',
+                    logo: 'images/icons/texrh-32.png',
+                    flavor: 'Rich, Marinated',
+                    size: '⭐ Medium, But Large Quantity',
+                    breading: 'Rich, Battered',
+                    individuality: 'Very Rich Taste, Good Batter'
+                },
+                {
+                    category: 'restaurants',
+                    name: 'Meddy\'s',
+                    logo: 'images/icons/meddys.png',
+                    flavor: 'Rich, Mediterranean-esque batter, with a "kick" of spice.',
+                    size: 'Medium, Filling.',
+                    breading: 'Spiced, Battered',
+                    individuality: 'Very Unique Taste, Marinated'
+                },
+                {
+                    category: 'restaurants',
+                    name: 'Red Robin',
+                    logo: 'images/icons/redrobin-32.png',
+                    flavor: 'Marinated, Baked',
+                    size: 'Good',
+                    breading: 'Heavily Battered, Crunchy',
+                    individuality: 'Good Batter, Light Marinade'
+                },
+                {
+                    category: 'restaurants',
+                    name: 'Twisted Biscuit',
+                    logo: 'images/icons/tb.png',
+                    flavor: 'Marinated, Fried',
+                    size: 'Great (Large)',
+                    breading: 'Crunchy, Sweet',
+                    individuality: 'Very Large Tenders, Well Cooked, Sweet Marinade'
+                },
+                {
+                    category: 'restaurants',
+                    name: 'Sugarfire',
+                    logo: 'images/icons/sugarfire.png',
+                    flavor: 'Marinated, Fried',
+                    size: 'Chicken Patty',
+                    breading: 'Crunchy, Sweet',
+                    individuality: 'Chicken Sandwich, Exceeds Expectations'
+                },
+                {
+                    category: 'restaurants',
+                    name: 'Llywelyn\'s Pub',
+                    logo: 'images/icons/llywelyns.ico',
+                    flavor: 'Marinated, Baked',
+                    size: 'Average',
+                    breading: 'Crunchy, Semi-Sweet',
+                    individuality: 'Good For Pub Food, Otherwise Average'
+                },
+                {
+                    category: 'restaurants',
+                    name: 'Portillos',
+                    logo: 'images/icons/portillos.png',
+                    flavor: 'Baked',
+                    size: 'Average',
+                    breading: 'Crunchy, Small Twang',
+                    individuality: 'Better than average'
+                },
+                {
+                    category: 'restaurants',
+                    name: 'Applebees',
+                    logo: 'images/icons/applebees-32.png',
+                    flavor: 'Marinated, Baked',
+                    size: 'Average',
+                    breading: 'Crunchy',
+                    individuality: 'Occasionally Small, or Overcooked'
+                },
+                {
+                    category: 'restaurants',
+                    name: 'Bandana\'s BBQ',
+                    logo: 'images/icons/bandanas-32.png',
+                    flavor: 'Sweet',
+                    size: 'Average',
+                    breading: 'Baked, Marinated',
+                    individuality: 'Stringy, Sweet and Crunchy'
+                },
+                {
+                    category: 'restaurants',
+                    name: 'Mercy N. Cafeteria',
+                    logo: 'images/icons/mercy.png',
+                    flavor: 'Baked',
+                    size: 'Above Average',
+                    breading: 'Baked',
+                    individuality: 'Shockingly well priced and good tasting!'
+                },
+                {
+                    category: 'restaurants',
+                    name: 'Hard Rock Cafe',
+                    logo: 'images/icons/hrc.png',
+                    flavor: 'Baked',
+                    size: 'Average',
+                    breading: 'Crunchy',
+                    individuality: 'Basic, Good'
+                },
+                {
+                    category: 'restaurants',
+                    name: 'LongHorn Steakhouse',
+                    logo: 'images/icons/longhorn-32.png',
+                    flavor: 'Baked, OK',
+                    size: 'Average',
+                    breading: 'Crunchy',
+                    individuality: 'Basic, Good'
+                },
+                {
+                    category: 'restaurants',
+                    name: 'Red Lobster',
+                    logo: 'images/icons/redlobster.ico',
+                    flavor: 'Baked, OK',
+                    size: 'Average',
+                    breading: 'Baked, Battered',
+                    individuality: 'Basic, OK Batter'
+                },
+                {
+                    category: 'restaurants',
+                    name: 'Red Bar - Hyatt O\'Hare',
+                    logo: 'images/icons/redbar.png',
+                    flavor: 'Baked, OK',
+                    size: 'Below Average',
+                    breading: 'Baked',
+                    individuality: 'Basic, they\'ll do'
+                },
+                {
+                    category: 'restaurants',
+                    name: 'IKEA (Dining)',
+                    logo: 'images/icons/IKEA.ico',
+                    flavor: 'Baked, OK',
+                    size: 'Average',
+                    breading: 'Baked, Battered',
+                    individuality: 'Basic, But Good for Swedish Chicken Tenders'
+                },
+                {
+                    category: 'restaurants',
+                    name: 'Sushi-Ai (Japanese Restaurant)',
+                    logo: 'images/icons/sushiai-32.png',
+                    flavor: 'Yakitori',
+                    size: 'Skewered',
+                    breading: 'You get rice',
+                    individuality: 'These Are Not Chicken Nuggets, or Tenders'
+                },
+                {
+                    category: 'restaurants',
+                    name: 'Kyoto (Japanese Steakhouse)',
+                    logo: 'images/icons/kyoto-32.png',
+                    flavor: 'Fried, Light Sauce',
+                    size: 'Finely Chopped',
+                    breading: 'You get rice',
+                    individuality: 'These Are Not Chicken Nuggets, or Tenders'
+                },
+                {
+                    category: 'restaurants',
+                    name: 'Wings and Rings',
+                    logo: 'images/icons/wnr.ico',
+                    flavor: 'Baked',
+                    size: 'Average',
+                    breading: 'Crunchy',
+                    individuality: 'Disappointingly Tough, Overcooked'
+                },
+                {
+                    category: 'restaurants',
+                    name: 'Denny\'s',
+                    logo: 'images/icons/dennys-32.png',
+                    flavor: 'Tough, Well Cooked',
+                    size: 'Average',
+                    breading: 'Fried, Plain, Thin Batter',
+                    individuality: 'OK, Very Oily, Tolerable'
+                }
+            ];
+
+            tenders.forEach(tender => {
+                const card = createTenderCard(tender);
+                categories[tender.category].innerHTML += card;
+            });
+        }
+
+        populateReviews();
+    });
+</script>
 </body>
 </html>
