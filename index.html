@@ -50,8 +50,9 @@
   <!-- Add Bootstrap and AOS for better styling and animations -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
+  <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" defer></script>
 </head>
 <body>
     <header class="hero">
@@ -181,7 +182,7 @@
         <section id="updates" class="section">
             <h2><i class="fas fa-clock"></i> Updates</h2>
             <p>That's it for now, I'll be updating this if I have any additional restaurants I visit and would like to add.</p>
-            <p><strong>Last Updated: 07-29-24</strong></p>
+            <p><strong>Last Updated: <span id="lastUpdated"></span></strong></p>
         </section>
     </main>
 
@@ -205,204 +206,12 @@
         </div>
     </footer>
 
-    <!-- Add JavaScript file -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
     <script>
     document.addEventListener('DOMContentLoaded', function() {
-        // Initialize AOS with a delay
-        setTimeout(function() {
-            AOS.init({
-                once: true,
-                duration: 1000
-            });
-        }, 100);
+        // Update last updated date
+        document.getElementById('lastUpdated').textContent = new Date().toLocaleDateString();
 
-        // Add animation to sections
-        document.querySelectorAll('.section').forEach(section => {
-            section.setAttribute('data-aos', 'fade-up');
-            section.setAttribute('data-aos-duration', '1000');
-        });
-
-        // Create flavor chart
-        const flavorCtx = document.getElementById('flavorChart').getContext('2d');
-        new Chart(flavorCtx, {
-            type: 'bar',
-            data: {
-                labels: ['Rich', 'Sweet', 'Plain', 'Marinated', 'Spicy'],
-                datasets: [{
-                    label: 'Flavor Distribution',
-                    data: [8, 5, 3, 10, 2],
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.8)',
-                        'rgba(54, 162, 235, 0.8)',
-                        'rgba(255, 206, 86, 0.8)',
-                        'rgba(75, 192, 192, 0.8)',
-                        'rgba(153, 102, 255, 0.8)'
-                    ]
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    title: {
-                        display: true,
-                        text: 'Flavor Distribution'
-                    }
-                }
-            }
-        });
-
-        // Create size chart
-        const sizeCtx = document.getElementById('sizeChart').getContext('2d');
-        new Chart(sizeCtx, {
-            type: 'pie',
-            data: {
-                labels: ['Small', 'Medium', 'Large'],
-                datasets: [{
-                    data: [3, 7, 5],
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.8)',
-                        'rgba(54, 162, 235, 0.8)',
-                        'rgba(255, 206, 86, 0.8)'
-                    ]
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    title: {
-                        display: true,
-                        text: 'Size Distribution'
-                    }
-                }
-            }
-        });
-
-        // Add smooth scrolling to nav links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // Rating system
-        const tenderSelect = document.getElementById('tenderSelect');
-        const ratingStars = document.getElementById('ratingStars');
-        const submitRating = document.getElementById('submitRating');
-
-        // Create rating stars
-        for (let i = 1; i <= 5; i++) {
-            const star = document.createElement('span');
-            star.classList.add('rating-star');
-            star.textContent = '★';
-            star.dataset.rating = i;
-            ratingStars.appendChild(star);
-        }
-
-        // Handle star rating
-        ratingStars.addEventListener('click', function(e) {
-            if (e.target.classList.contains('rating-star')) {
-                const rating = e.target.dataset.rating;
-                const stars = ratingStars.children;
-                for (let i = 0; i < stars.length; i++) {
-                    stars[i].classList.toggle('active', i < rating);
-                }
-            }
-        });
-
-        // Handle rating submission
-        submitRating.addEventListener('click', function() {
-            const selectedTender = tenderSelect.value;
-            const rating = ratingStars.querySelectorAll('.active').length;
-            alert(`You rated ${selectedTender} ${rating} stars. Thank you for your feedback!`);
-            // Here you would typically send this data to a server
-        });
-
-        // Comparison tool
-        const tender1 = document.getElementById('tender1');
-        const tender2 = document.getElementById('tender2');
-        const comparisonResult = document.getElementById('comparisonResult');
-
-        // Handle comparison
-        [tender1, tender2].forEach(select => {
-            select.addEventListener('change', compareChicken);
-        });
-
-        function compareChicken() {
-            const chicken1 = getTenderData(tender1.value);
-            const chicken2 = getTenderData(tender2.value);
-
-            if (chicken1 && chicken2) {
-                comparisonResult.innerHTML = `
-                    <h4>${chicken1.name} vs ${chicken2.name}</h4>
-                    <p><strong>Flavor:</strong> ${chicken1.flavor} vs ${chicken2.flavor}</p>
-                    <p><strong>Size:</strong> ${chicken1.size} vs ${chicken2.size}</p>
-                    <p><strong>Breading:</strong> ${chicken1.breading} vs ${chicken2.breading}</p>
-                    <p><strong>Individuality:</strong> ${chicken1.individuality} vs ${chicken2.individuality}</p>
-                `;
-            }
-        }
-
-        function getTenderData(tenderName) {
-            const tender = tenders.find(t => t.name === tenderName);
-            return tender ? {
-                name: tender.name,
-                flavor: tender.flavor,
-                size: tender.size,
-                breading: tender.breading,
-                individuality: tender.individuality
-            } : null;
-        }
-
-        // Function to create a card for each tender
-        function createTenderCard(tender) {
-            return `
-                <div class="card">
-                    <div class="card-header">
-                        <img src="${tender.logo}" alt="${tender.name} logo" class="tender-logo">
-                        <h4 class="tender-name">${tender.name}</h4>
-                    </div>
-                    <div class="card-body">
-                        <p class="tender-detail"><strong>Flavor:</strong> ${tender.flavor}</p>
-                        <p class="tender-detail"><strong>Size:</strong> ${tender.size}</p>
-                        <p class="tender-detail"><strong>Breading:</strong> ${tender.breading}</p>
-                        <p class="tender-detail"><strong>Individuality:</strong> ${tender.individuality}</p>
-                    </div>
-                </div>
-            `;
-        }
-
-        // Function to populate reviews
-        function populateReviews() {
-            const categories = {
-                'store-bought': document.getElementById('store-bought-reviews'),
-                'fast-food': document.getElementById('fast-food-reviews'),
-                'restaurants': document.getElementById('restaurant-reviews')
-            };
-
-            tenders.forEach(tender => {
-                const card = createTenderCard(tender);
-                categories[tender.category].innerHTML += card;
-            });
-
-            // Populate tender select options
-            tenders.forEach(tender => {
-                const option = document.createElement('option');
-                option.value = tender.name;
-                option.textContent = tender.name;
-                tenderSelect.appendChild(option);
-                tender1.appendChild(option.cloneNode(true));
-                tender2.appendChild(option.cloneNode(true));
-            });
-        }
-
-        // Tenders data
+        // Define the tenders data
         const tenders = [
             {
                 category: 'store-bought',
@@ -793,420 +602,215 @@
             }
         ];
 
-        populateReviews();
-    });
-</script>
-</body>
-</html>
+        // Initialize AOS with a delay
+        setTimeout(function() {
+            AOS.init({
+                once: true,
+                duration: 1000
+            });
+        }, 100);
+
+        // Add animation to sections
+        document.querySelectorAll('.section').forEach(section => {
+            section.setAttribute('data-aos', 'fade-up');
+            section.setAttribute('data-aos-duration', '1000');
+        });
+
+        // Add this function definition before using it
+        function createChart(ctx, config) {
+            try {
+                return new Chart(ctx, config);
+            } catch (error) {
+                console.error('Error creating chart:', error);
+                return null;
+            }
+        }
+
+        // Create flavor chart
+        const flavorCtx = document.getElementById('flavorChart').getContext('2d');
+        const flavorChart = createChart(flavorCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Rich', 'Sweet', 'Plain', 'Marinated', 'Spicy'],
+                datasets: [{
+                    label: 'Flavor Distribution',
+                    data: [8, 5, 3, 10, 2],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.8)',
+                        'rgba(54, 162, 235, 0.8)',
+                        'rgba(255, 206, 86, 0.8)',
+                        'rgba(75, 192, 192, 0.8)',
+                        'rgba(153, 102, 255, 0.8)'
+                    ]
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Flavor Distribution'
+                    }
+                }
+            }
+        });
+
+        // Create size chart
+        const sizeCtx = document.getElementById('sizeChart').getContext('2d');
+        const sizeChart = createChart(sizeCtx, {
+            type: 'pie',
+            data: {
+                labels: ['Small', 'Medium', 'Large'],
+                datasets: [{
+                    data: [3, 7, 5],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.8)',
+                        'rgba(54, 162, 235, 0.8)',
+                        'rgba(255, 206, 86, 0.8)'
+                    ]
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Size Distribution'
+                    }
+                }
+            }
+        });
+
+        // Add smooth scrolling to nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Rating system
+        const tenderSelect = document.getElementById('tenderSelect');
+        const ratingStars = document.getElementById('ratingStars');
+        const submitRating = document.getElementById('submitRating');
+
+        if (tenderSelect && ratingStars && submitRating) {
+            // Create rating stars
+            for (let i = 1; i <= 5; i++) {
+                const star = document.createElement('span');
+                star.classList.add('rating-star');
+                star.textContent = '★';
+                star.dataset.rating = i;
+                ratingStars.appendChild(star);
+            }
+
+            // Handle star rating
+            ratingStars.addEventListener('click', function(e) {
+                if (e.target.classList.contains('rating-star')) {
+                    const rating = e.target.dataset.rating;
+                    const stars = ratingStars.children;
+                    for (let i = 0; i < stars.length; i++) {
+                        stars[i].classList.toggle('active', i < rating);
+                    }
+                }
+            });
+
+            // Handle rating submission
+            submitRating.addEventListener('click', function() {
+                const selectedTender = tenderSelect.value;
+                const rating = ratingStars.querySelectorAll('.active').length;
+                alert(`You rated ${selectedTender} ${rating} stars. Thank you for your feedback!`);
+                // Here you would typically send this data to a server
+            });
+        } else {
+            console.error('One or more elements for the rating system are missing.');
+        }
+
+        // Comparison tool
+        const tender1 = document.getElementById('tender1');
+        const tender2 = document.getElementById('tender2');
+        const comparisonResult = document.getElementById('comparisonResult');
+
+        if (tender1 && tender2 && comparisonResult) {
+            // Handle comparison
+            [tender1, tender2].forEach(select => {
+                select.addEventListener('change', compareChicken);
+            });
+
+            function compareChicken() {
+                const chicken1 = getTenderData(tender1.value);
+                const chicken2 = getTenderData(tender2.value);
+
+                if (chicken1 && chicken2) {
+                    const comparisonHTML = `
+                        <h4>${chicken1.name} vs ${chicken2.name}</h4>
+                        ${['flavor', 'size', 'breading', 'individuality'].map(prop => 
+                            `<p><strong>${prop.charAt(0).toUpperCase() + prop.slice(1)}:</strong> ${chicken1[prop]} vs ${chicken2[prop]}</p>`
+                        ).join('')}
+                    `;
+                    comparisonResult.innerHTML = comparisonHTML;
+                }
+            }
+
+            function getTenderData(tenderName) {
+                const tender = tenders.find(t => t.name === tenderName);
+                return tender ? {
+                    name: tender.name,
+                    flavor: tender.flavor,
+                    size: tender.size,
+                    breading: tender.breading,
+                    individuality: tender.individuality
+                } : null;
+            }
+        } else {
+            console.error('One or more elements for the comparison tool are missing.');
+        }
+
+        // Function to create a card for each tender
+        function createTenderCard(tender) {
+            return `
+                <div class="card">
+                    <div class="card-header">
+                        <img src="${tender.logo}" alt="${tender.name} logo" class="tender-logo">
+                        <h4 class="tender-name">${tender.name}</h4>
+                    </div>
+                    <div class="card-body">
+                        ${['flavor', 'size', 'breading', 'individuality'].map(prop => 
+                            `<p class="tender-detail"><strong>${prop.charAt(0).toUpperCase() + prop.slice(1)}:</strong> ${tender[prop]}</p>`
+                        ).join('')}
+                    </div>
+                </div>
+            `;
+        }
 
         // Function to populate reviews
-        function populateReviews() {
+        function populateReviews(tenders) {
             const categories = {
                 'store-bought': document.getElementById('store-bought-reviews'),
                 'fast-food': document.getElementById('fast-food-reviews'),
                 'restaurants': document.getElementById('restaurant-reviews')
             };
 
-            // Iterate through your data and create cards
-            // This is a placeholder - you'll need to replace it with your actual data
-            const tenders = [
-                {
-                    category: 'store-bought',
-                    name: 'Kirkwood Honey Battered Chicken Breast Tenders',
-                    logo: 'images/icons/aldi-32.png',
-                    flavor: 'Good',
-                    size: 'Small, Fingerfood',
-                    breading: 'Thin, Good Taste',
-                    individuality: 'Honey-Sweet Taste'
-                },
-                {
-                    category: 'store-bought',
-                    name: 'Tyson Honey Battered Chicken Breast Tenders',
-                    logo: 'images/icons/tyson-32.png',
-                    flavor: 'Good',
-                    size: 'Small, Fingerfood',
-                    breading: 'Thin, Good Taste',
-                    individuality: '(Literally Copies Aldi) Honey-Sweet Taste'
-                },
-                {
-                    category: 'store-bought',
-                    name: 'Kirkwood Popcorn Chicken',
-                    logo: 'images/icons/aldi-32.png',
-                    flavor: 'Good',
-                    size: 'Small, Fingerfood',
-                    breading: 'Good',
-                    individuality: 'Rich Thick Taste'
-                },
-                {
-                    category: 'store-bought',
-                    name: 'Kirkwood Chicken Fries',
-                    logo: 'images/icons/aldi-32.png',
-                    flavor: 'Good',
-                    size: 'Small, But Fingerfood',
-                    breading: 'Light, But Good',
-                    individuality: 'OK Seasoning, Easy To Make'
-                },
-                {
-                    category: 'store-bought',
-                    name: 'Any\'tizers Chicken Fries',
-                    logo: 'images/icons/tyson-32.png',
-                    flavor: 'Good, Not Terrible',
-                    size: 'Small, Fingerfood',
-                    breading: 'Light, But Good',
-                    individuality: 'Good Seasoning, Easy To Make'
-                },
-                {
-                    category: 'store-bought',
-                    name: 'Any\'tizers Chicken Bites',
-                    logo: 'images/icons/tyson-32.png',
-                    flavor: 'Good, Lacking Depth.',
-                    size: 'Small, Fingerfood',
-                    breading: 'Dry, Crunchy',
-                    individuality: 'Plain-Jain'
-                },
-                {
-                    category: 'store-bought',
-                    name: 'Dino Fun Nuggets',
-                    logo: 'images/icons/tyson-32.png',
-                    flavor: 'Good',
-                    size: 'Small, Fingerfood',
-                    breading: 'Good, Semi-Thick',
-                    individuality: 'Sweetened, Semi-Crunchy'
-                },
-                {
-                    category: 'store-bought',
-                    name: 'Crispy Chicken Strips',
-                    logo: 'images/icons/tyson-32.png',
-                    flavor: 'Good',
-                    size: '⭐ The Perfect Size',
-                    breading: 'Good, Acceptable',
-                    individuality: 'Plain-Jain'
-                },
-                {
-                    category: 'store-bought',
-                    name: 'Chicken Nuggets',
-                    logo: 'images/icons/tyson-32.png',
-                    flavor: 'OK, Lacking',
-                    size: 'Small, Fingerfood',
-                    breading: 'Light, Falls Off',
-                    individuality: 'Plain-Jain'
-                },
-                {
-                    category: 'fast-food',
-                    name: 'Chick-fil-A',
-                    logo: 'images/icons/chick-fil-a.ico',
-                    flavor: 'Rich, Marinated',
-                    size: 'Varies, Acceptable',
-                    breading: 'Light, But Rich',
-                    individuality: '⭐ Very Good Marinade'
-                },
-                {
-                    category: 'fast-food',
-                    name: 'Culvers',
-                    logo: 'images/icons/culvers-32.png',
-                    flavor: 'Sweet, Battered',
-                    size: '⭐ The Perfect Size',
-                    breading: 'Thick and Rich',
-                    individuality: 'Very Thick Batter, Very Rich Taste'
-                },
-                {
-                    category: 'fast-food',
-                    name: 'Raising Canes',
-                    logo: 'images/icons/raising-canes-32.png',
-                    flavor: 'Rich, Marinated',
-                    size: 'Shrinking, Marginal',
-                    breading: 'Light, Thin, Falls Off',
-                    individuality: 'Good Marinade, Sometimes Dry'
-                },
-                {
-                    category: 'fast-food',
-                    name: 'Gus\'s',
-                    logo: 'images/icons/gus-32.png',
-                    flavor: 'Pickle-y, Marinated',
-                    size: 'Large, Quantity',
-                    breading: 'Light, Juicy',
-                    individuality: 'Good Marinade, Very Rich'
-                },
-                {
-                    category: 'fast-food',
-                    name: 'Lee\'s',
-                    logo: 'images/icons/lees-32.png',
-                    flavor: 'Crunchy, Marinated',
-                    size: 'Midsize, Fair Quantity',
-                    breading: 'Light Breading',
-                    individuality: 'Good Marinade, Unique'
-                },
-                {
-                    category: 'fast-food',
-                    name: 'Freddy\'s',
-                    logo: 'images/icons/freddys-32.png',
-                    flavor: 'Marinated',
-                    size: 'Good',
-                    breading: 'Crunchy, Easy To Chew',
-                    individuality: 'Seasoning Intensifies Flavor'
-                },
-                {
-                    category: 'fast-food',
-                    name: 'Shake Shack',
-                    logo: 'images/icons/shakeshack.ico',
-                    flavor: 'Marinated, Sweet',
-                    size: 'Good',
-                    breading: 'Slight crunch, Easy to Chew',
-                    individuality: 'Slight Marinate With a Slight Crunch Combination'
-                },
-                {
-                    category: 'fast-food',
-                    name: 'Churchs',
-                    logo: 'images/icons/churchs-32.png',
-                    flavor: 'Rich Marinated',
-                    size: 'Good',
-                    breading: 'Crunchy, Sweet',
-                    individuality: 'Good Batter Consistency'
-                },
-                {
-                    category: 'fast-food',
-                    name: 'Steak n\' Shake',
-                    logo: 'images/icons/steaknshake-32.png',
-                    flavor: 'Classic American',
-                    size: 'Good',
-                    breading: 'Average',
-                    individuality: 'Tastes good, has never changed'
-                },
-                {
-                    category: 'fast-food',
-                    name: 'Dairy Queen',
-                    logo: 'images/icons/dq-32.png',
-                    flavor: 'Plain',
-                    size: 'Good',
-                    breading: 'Average Thickness, Baked',
-                    individuality: 'Plain, A Good Middle-Ground'
-                },
-                {
-                    category: 'fast-food',
-                    name: 'Wendy\'s',
-                    logo: 'images/icons/wendys-32.png',
-                    flavor: 'Good, Marinated',
-                    size: 'Small, Nuggets',
-                    breading: 'Good',
-                    individuality: 'Seasoning, Semi-Crunchy'
-                },
-                {
-                    category: 'fast-food',
-                    name: 'Jack in the Box',
-                    logo: 'images/icons/JITB.png',
-                    flavor: 'Good',
-                    size: 'Mid',
-                    breading: 'Good, Thin',
-                    individuality: 'Spicy-Marinade Taste'
-                },
-                {
-                    category: 'fast-food',
-                    name: 'Burger King',
-                    logo: 'images/icons/burgerking.ico',
-                    flavor: 'Good',
-                    size: 'Small, Nuggets',
-                    breading: 'Good, Thin',
-                    individuality: 'Seasoning'
-                },
-                {
-                    category: 'fast-food',
-                    name: 'McDonalds',
-                    logo: 'images/icons/mcdonalds.ico',
-                    flavor: 'OK, Plain',
-                    size: 'Small, Nuggets',
-                    breading: 'Thin, Occasionally Missing',
-                    individuality: 'Plain-Jain, OK In a Pinch'
-                },
-                {
-                    category: 'fast-food',
-                    name: 'Sonic',
-                    logo: 'images/icons/sonic-32.png',
-                    flavor: 'Undercooked, Soggy',
-                    size: 'Good',
-                    breading: 'Good, On Par With Dairy Queen',
-                    individuality: 'Undercooked, literally gave me food poisoning.'
-                },
-                {
-                    category: 'restaurants',
-                    name: 'Texas Roadhouse',
-                    logo: 'images/icons/texrh-32.png',
-                    flavor: 'Rich, Marinated',
-                    size: '⭐ Medium, But Large Quantity',
-                    breading: 'Rich, Battered',
-                    individuality: 'Very Rich Taste, Good Batter'
-                },
-                {
-                    category: 'restaurants',
-                    name: 'Meddy\'s',
-                    logo: 'images/icons/meddys.png',
-                    flavor: 'Rich, Mediterranean-esque batter, with a "kick" of spice.',
-                    size: 'Medium, Filling.',
-                    breading: 'Spiced, Battered',
-                    individuality: 'Very Unique Taste, Marinated'
-                },
-                {
-                    category: 'restaurants',
-                    name: 'Red Robin',
-                    logo: 'images/icons/redrobin-32.png',
-                    flavor: 'Marinated, Baked',
-                    size: 'Good',
-                    breading: 'Heavily Battered, Crunchy',
-                    individuality: 'Good Batter, Light Marinade'
-                },
-                {
-                    category: 'restaurants',
-                    name: 'Twisted Biscuit',
-                    logo: 'images/icons/tb.png',
-                    flavor: 'Marinated, Fried',
-                    size: 'Great (Large)',
-                    breading: 'Crunchy, Sweet',
-                    individuality: 'Very Large Tenders, Well Cooked, Sweet Marinade'
-                },
-                {
-                    category: 'restaurants',
-                    name: 'Sugarfire',
-                    logo: 'images/icons/sugarfire.png',
-                    flavor: 'Marinated, Fried',
-                    size: 'Chicken Patty',
-                    breading: 'Crunchy, Sweet',
-                    individuality: 'Chicken Sandwich, Exceeds Expectations'
-                },
-                {
-                    category: 'restaurants',
-                    name: 'Llywelyn\'s Pub',
-                    logo: 'images/icons/llywelyns.ico',
-                    flavor: 'Marinated, Baked',
-                    size: 'Average',
-                    breading: 'Crunchy, Semi-Sweet',
-                    individuality: 'Good For Pub Food, Otherwise Average'
-                },
-                {
-                    category: 'restaurants',
-                    name: 'Portillos',
-                    logo: 'images/icons/portillos.png',
-                    flavor: 'Baked',
-                    size: 'Average',
-                    breading: 'Crunchy, Small Twang',
-                    individuality: 'Better than average'
-                },
-                {
-                    category: 'restaurants',
-                    name: 'Applebees',
-                    logo: 'images/icons/applebees-32.png',
-                    flavor: 'Marinated, Baked',
-                    size: 'Average',
-                    breading: 'Crunchy',
-                    individuality: 'Occasionally Small, or Overcooked'
-                },
-                {
-                    category: 'restaurants',
-                    name: 'Bandana\'s BBQ',
-                    logo: 'images/icons/bandanas-32.png',
-                    flavor: 'Sweet',
-                    size: 'Average',
-                    breading: 'Baked, Marinated',
-                    individuality: 'Stringy, Sweet and Crunchy'
-                },
-                {
-                    category: 'restaurants',
-                    name: 'Mercy N. Cafeteria',
-                    logo: 'images/icons/mercy.png',
-                    flavor: 'Baked',
-                    size: 'Above Average',
-                    breading: 'Baked',
-                    individuality: 'Shockingly well priced and good tasting!'
-                },
-                {
-                    category: 'restaurants',
-                    name: 'Hard Rock Cafe',
-                    logo: 'images/icons/hrc.png',
-                    flavor: 'Baked',
-                    size: 'Average',
-                    breading: 'Crunchy',
-                    individuality: 'Basic, Good'
-                },
-                {
-                    category: 'restaurants',
-                    name: 'LongHorn Steakhouse',
-                    logo: 'images/icons/longhorn-32.png',
-                    flavor: 'Baked, OK',
-                    size: 'Average',
-                    breading: 'Crunchy',
-                    individuality: 'Basic, Good'
-                },
-                {
-                    category: 'restaurants',
-                    name: 'Red Lobster',
-                    logo: 'images/icons/redlobster.ico',
-                    flavor: 'Baked, OK',
-                    size: 'Average',
-                    breading: 'Baked, Battered',
-                    individuality: 'Basic, OK Batter'
-                },
-                {
-                    category: 'restaurants',
-                    name: 'Red Bar - Hyatt O\'Hare',
-                    logo: 'images/icons/redbar.png',
-                    flavor: 'Baked, OK',
-                    size: 'Below Average',
-                    breading: 'Baked',
-                    individuality: 'Basic, they\'ll do'
-                },
-                {
-                    category: 'restaurants',
-                    name: 'IKEA (Dining)',
-                    logo: 'images/icons/IKEA.ico',
-                    flavor: 'Baked, OK',
-                    size: 'Average',
-                    breading: 'Baked, Battered',
-                    individuality: 'Basic, But Good for Swedish Chicken Tenders'
-                },
-                {
-                    category: 'restaurants',
-                    name: 'Sushi-Ai (Japanese Restaurant)',
-                    logo: 'images/icons/sushiai-32.png',
-                    flavor: 'Yakitori',
-                    size: 'Skewered',
-                    breading: 'You get rice',
-                    individuality: 'These Are Not Chicken Nuggets, or Tenders'
-                },
-                {
-                    category: 'restaurants',
-                    name: 'Kyoto (Japanese Steakhouse)',
-                    logo: 'images/icons/kyoto-32.png',
-                    flavor: 'Fried, Light Sauce',
-                    size: 'Finely Chopped',
-                    breading: 'You get rice',
-                    individuality: 'These Are Not Chicken Nuggets, or Tenders'
-                },
-                {
-                    category: 'restaurants',
-                    name: 'Wings and Rings',
-                    logo: 'images/icons/wnr.ico',
-                    flavor: 'Baked',
-                    size: 'Average',
-                    breading: 'Crunchy',
-                    individuality: 'Disappointingly Tough, Overcooked'
-                },
-                {
-                    category: 'restaurants',
-                    name: 'Denny\'s',
-                    logo: 'images/icons/dennys-32.png',
-                    flavor: 'Tough, Well Cooked',
-                    size: 'Average',
-                    breading: 'Fried, Plain, Thin Batter',
-                    individuality: 'OK, Very Oily, Tolerable'
-                }
-            ];
-
             tenders.forEach(tender => {
                 const card = createTenderCard(tender);
                 categories[tender.category].innerHTML += card;
             });
+
+            // Populate tender select options
+            tenders.forEach(tender => {
+                const option = document.createElement('option');
+                option.value = tender.name;
+                option.textContent = tender.name;
+                tenderSelect.appendChild(option);
+                tender1.appendChild(option.cloneNode(true));
+                tender2.appendChild(option.cloneNode(true));
+            });
         }
 
-        populateReviews();
+        // Populate reviews
+        populateReviews(tenders);
     });
 </script>
-</body>
 </html>
